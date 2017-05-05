@@ -12,8 +12,6 @@ firebase.initializeApp(config)
 firebase.auth().signInAnonymously()
 // CREATE a new woof in Firebase
 var woofInput = document.getElementById('woof-text')
-var woofButton = document.getElementById('woof-button')
-var woofDiv = document.getElementById('woofs')
 
 function createWoofInDatabase (woof) {
   // TODO create a new record in Firebase
@@ -32,10 +30,10 @@ function createWoofInDatabase (woof) {
 // defined in woofer-ui.js).
 
 function removeElementsByClass (className) {
-    var elements = document.getElementsByClassName(className)
-    while(elements.length > 0) {
-        elements[0].parentNode.removeChild(elements[0])
-    }
+  var elements = document.getElementsByClassName(className)
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0])
+  }
 }
 
 function readWoofsInDatabase () {
@@ -47,7 +45,7 @@ function readWoofsInDatabase () {
     console.log(allJokesSnapshot.val())
     for (var key in allJokesSnapshot.val()) {
       var value = allJokesSnapshot.val()[key]
-        addWoofRow (key, value)
+      addWoofRow(key, value)
     }
   })
 }
@@ -58,11 +56,11 @@ function updateWoofInDatabase (woofKey, woofText) {
   firebase.database().ref('messages')
   .once('value').then(function (allJokesSnapshot) {
     console.log(allJokesSnapshot.val())
-      var currentDate = Date()
-      firebase.database().ref('messages').child(woofKey).set({
-        created_at: currentDate,
-        text: woofText
-      })
+    var currentDate = Date()
+    firebase.database().ref('messages').child(woofKey).set({
+      created_at: currentDate,
+      text: woofText
+    })
   })
   readWoofsInDatabase()
 }
@@ -70,8 +68,7 @@ function updateWoofInDatabase (woofKey, woofText) {
 // DELETE the woof from Firebase
 function deleteWoofFromDatabase (woofKey) {
   // TODO delete the record from Firebase
-    firebase.database().ref('messages').child(woofKey).remove()
+  firebase.database().ref('messages').child(woofKey).remove()
 }
-
-// Load all of the data
+//  Load all of the data
 readWoofsInDatabase()
