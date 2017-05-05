@@ -22,19 +22,14 @@
     </div>
     <div id="woofs">
     </div>
-    <div id="woofs-edit">
-      <input id="woof-text-edit" type="text" class="form-control" placeholder="Click The pencil To Edit A Woof">
-      <button id="woof-edit-button" class="btn btn-primary" type="button">Edit Woof!</button>
-    </div>
   </div>
 
   <script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
   <script type="text/javascript" src="woofer-ui.js"></script>
   <script type="text/javascript" src="woofer-db.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <script type="text/javascript" src="app.js"></script>
   <template id="woof-template">
-    <div class="row">
+    <div class="row start">
       <span class="pull-right">
         <button type="button" class="close btn-delete" aria-label="Delete">
           <small><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></small>

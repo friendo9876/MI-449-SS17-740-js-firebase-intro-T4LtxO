@@ -36,6 +36,7 @@ function createWoof () {
     created_at: new Date().getTime(),
     text: text
   })
+  readWoofsInDatabase()
 }
 
 // Make the textbox to edit a woof appear
@@ -90,6 +91,7 @@ function deleteWoofRow (woofKey) {
 function deleteWoof () {
   var row = this.parentElement.parentElement
   deleteWoofFromDatabase(row.id)
+  readWoofsInDatabase()
 }
 
 // Event listeners to add a new woof
